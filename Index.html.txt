@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tamil Nadu Election Results 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Tamil:ital@0;1&family=Bebas+Neue&family=DM+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --saffron: #FF6B1A;
+    --green: #138808;
+    --navy: #000080;
+    --gold: #FFD700;
+    --cream: #FFF8EE;
+    --dark: #0D0A05;
+    --smoke: rgba(255,255,255,0.06);
+  }
+
+- { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+background: var(–dark);
+font-family: ‘DM Sans’, sans-serif;
+min-height: 100vh;
+overflow-x: hidden;
+color: #fff;
+}
+
+/* Animated background */
+.bg {
+position: fixed; inset: 0; z-index: 0;
+background: radial-gradient(ellipse at 20% 50%, rgba(255,107,26,0.15) 0%, transparent 60%),
+radial-gradient(ellipse at 80% 20%, rgba(19,136,8,0.12) 0%, transparent 60%),
+radial-gradient(ellipse at 60% 80%, rgba(0,0,128,0.2) 0%, transparent 60%),
+#0D0A05;
+}
+
+.particles {
+position: fixed; inset: 0; z-index: 0;
+overflow: hidden;
+pointer-events: none;
+}
+
+.particle {
+position: absolute;
+width: 2px; height: 2px;
+background: var(–gold);
+border-radius: 50%;
+animation: float linear infinite;
+opacity: 0;
+}
+
+@keyframes float {
+0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+10% { opacity: 0.6; }
+90% { opacity: 0.3; }
+100% { transform: translateY(-10vh) translateX(40px); opacity: 0; }
+}
+
+.wrapper {
+position: relative; z-index: 1;
+display: flex; flex-direction: column;
+align-items: center;
+padding: 40px 20px 60px;
+min-height: 100vh;
+}
+
+/* Header */
+.header {
+text-align: center;
+margin-bottom: 32px;
+animation: fadeDown 0.8s ease both;
+}
+
+@keyframes fadeDown {
+from { opacity: 0; transform: translateY(-30px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+.flag-stripe {
+display: flex;
+width: 200px;
+height: 5px;
+border-radius: 10px;
+margin: 0 auto 24px;
+overflow: hidden;
+}
+.flag-stripe span { flex: 1; }
+.flag-stripe span:nth-child(1) { background: var(–saffron); }
+.flag-stripe span:nth-child(2) { background: #fff; }
+.flag-stripe span:nth-child(3) { background: var(–green); }
+
+.tamil-title {
+font-family: ‘Tiro Tamil’, serif;
+font-size: clamp(22px, 5vw, 32px);
+color: var(–gold);
+letter-spacing: 2px;
+margin-bottom: 8px;
+text-shadow: 0 0 40px rgba(255,215,0,0.4);
+}
+
+.main-title {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: clamp(36px, 8vw, 68px);
+letter-spacing: 4px;
+line-height: 1;
+background: linear-gradient(135deg, #fff 30%, var(–gold) 70%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+margin-bottom: 8px;
+}
+
+.subtitle {
+font-size: 13px;
+color: rgba(255,255,255,0.5);
+letter-spacing: 3px;
+text-transform: uppercase;
+}
+
+/* Status badge */
+.status-badge {
+display: inline-flex;
+align-items: center;
+gap: 8px;
+background: var(–smoke);
+border: 1px solid rgba(255,215,0,0.2);
+border-radius: 100px;
+padding: 8px 20px;
+margin-bottom: 36px;
+font-size: 13px;
+color: rgba(255,255,255,0.7);
+animation: fadeDown 0.8s 0.2s ease both;
+}
+
+.dot {
+width: 8px; height: 8px;
+border-radius: 50%;
+background: #ff4444;
+animation: pulse 1.2s infinite;
+}
+.dot.green { background: #00ff88; }
+
+@keyframes pulse {
+0%, 100% { opacity: 1; transform: scale(1); }
+50% { opacity: 0.5; transform: scale(0.7); }
+}
+
+/* Countdown */
+.countdown-grid {
+display: flex;
+gap: 16px;
+margin-bottom: 40px;
+flex-wrap: wrap;
+justify-content: center;
+animation: fadeUp 0.8s 0.3s ease both;
+}
+
+@keyframes fadeUp {
+from { opacity: 0; transform: translateY(30px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+.time-block {
+text-align: center;
+min-width: 90px;
+}
+
+.time-card {
+background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+border: 1px solid rgba(255,215,0,0.15);
+border-radius: 16px;
+padding: 20px 16px 14px;
+position: relative;
+overflow: hidden;
+transition: border-color 0.3s;
+}
+
+.time-card::before {
+content: ‘’;
+position: absolute;
+top: 0; left: 0; right: 0;
+height: 1px;
+background: linear-gradient(90deg, transparent, var(–gold), transparent);
+opacity: 0.4;
+}
+
+.time-num {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: clamp(44px, 10vw, 72px);
+line-height: 1;
+color: #fff;
+letter-spacing: 2px;
+transition: color 0.3s;
+}
+
+.time-num.changed {
+color: var(–gold);
+animation: numFlash 0.4s ease;
+}
+
+@keyframes numFlash {
+0% { transform: scale(1.1); }
+100% { transform: scale(1); }
+}
+
+.time-label {
+font-size: 10px;
+letter-spacing: 3px;
+text-transform: uppercase;
+color: rgba(255,255,255,0.4);
+margin-top: 6px;
+}
+
+.colon {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 52px;
+color: rgba(255,215,0,0.3);
+line-height: 1;
+padding-top: 10px;
+animation: blink 1s infinite;
+}
+
+@keyframes blink {
+0%, 100% { opacity: 1; }
+50% { opacity: 0.2; }
+}
+
+/* Result date card */
+.result-card {
+background: linear-gradient(135deg, rgba(255,107,26,0.12), rgba(19,136,8,0.08));
+border: 1px solid rgba(255,107,26,0.3);
+border-radius: 20px;
+padding: 24px 32px;
+text-align: center;
+margin-bottom: 36px;
+width: 100%;
+max-width: 480px;
+animation: fadeUp 0.8s 0.4s ease both;
+}
+
+.result-date-label {
+font-size: 11px;
+letter-spacing: 3px;
+text-transform: uppercase;
+color: rgba(255,255,255,0.4);
+margin-bottom: 8px;
+}
+
+.result-date {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 36px;
+letter-spacing: 3px;
+color: var(–saffron);
+}
+
+.result-time-note {
+font-size: 12px;
+color: rgba(255,255,255,0.4);
+margin-top: 6px;
+}
+
+/* Progress bar */
+.progress-section {
+width: 100%;
+max-width: 480px;
+margin-bottom: 36px;
+animation: fadeUp 0.8s 0.5s ease both;
+}
+
+.progress-label {
+display: flex;
+justify-content: space-between;
+font-size: 11px;
+color: rgba(255,255,255,0.35);
+letter-spacing: 2px;
+text-transform: uppercase;
+margin-bottom: 10px;
+}
+
+.progress-bar {
+height: 4px;
+background: rgba(255,255,255,0.06);
+border-radius: 10px;
+overflow: hidden;
+}
+
+.progress-fill {
+height: 100%;
+border-radius: 10px;
+background: linear-gradient(90deg, var(–saffron), var(–gold), var(–green));
+transition: width 1s ease;
+}
+
+/* Key parties */
+.parties {
+width: 100%;
+max-width: 480px;
+animation: fadeUp 0.8s 0.6s ease both;
+}
+
+.parties-title {
+font-size: 11px;
+letter-spacing: 3px;
+text-transform: uppercase;
+color: rgba(255,255,255,0.3);
+text-align: center;
+margin-bottom: 16px;
+}
+
+.party-row {
+display: flex;
+gap: 10px;
+flex-wrap: wrap;
+justify-content: center;
+}
+
+.party-pill {
+background: var(–smoke);
+border: 1px solid rgba(255,255,255,0.08);
+border-radius: 100px;
+padding: 8px 16px;
+font-size: 12px;
+color: rgba(255,255,255,0.6);
+display: flex;
+align-items: center;
+gap: 6px;
+letter-spacing: 0.5px;
+}
+
+.party-color {
+width: 8px; height: 8px;
+border-radius: 50%;
+flex-shrink: 0;
+}
+
+/* Finished state */
+.finished {
+display: none;
+text-align: center;
+animation: fadeUp 1s ease both;
+}
+
+.finished.show { display: block; }
+
+.finished-title {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: clamp(48px, 12vw, 96px);
+letter-spacing: 4px;
+background: linear-gradient(135deg, var(–saffron), var(–gold), var(–green));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+margin-bottom: 16px;
+}
+
+.finished-sub {
+font-family: ‘Tiro Tamil’, serif;
+font-size: 24px;
+color: var(–gold);
+margin-bottom: 8px;
+}
+
+.finished-note {
+font-size: 14px;
+color: rgba(255,255,255,0.5);
+}
+
+/* Confetti */
+.confetti-piece {
+position: fixed;
+width: 10px; height: 10px;
+top: -10px;
+animation: confetti-fall linear forwards;
+border-radius: 2px;
+opacity: 0;
+z-index: 999;
+pointer-events: none;
+}
+
+@keyframes confetti-fall {
+0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+
+.footer {
+margin-top: 48px;
+font-size: 11px;
+color: rgba(255,255,255,0.2);
+letter-spacing: 2px;
+text-align: center;
+animation: fadeUp 0.8s 0.7s ease both;
+}
+
+.brand-watermark {
+position: fixed;
+bottom: 18px;
+right: 20px;
+z-index: 100;
+display: flex;
+align-items: center;
+gap: 8px;
+background: rgba(255,255,255,0.04);
+border: 1px solid rgba(255,215,0,0.18);
+border-radius: 100px;
+padding: 7px 14px 7px 10px;
+backdrop-filter: blur(10px);
+animation: fadeUp 1s 1s ease both;
+text-decoration: none;
+}
+
+.brand-icon {
+width: 26px; height: 26px;
+border-radius: 50%;
+background: linear-gradient(135deg, var(–saffron), var(–gold));
+display: flex; align-items: center; justify-content: center;
+font-size: 13px;
+flex-shrink: 0;
+}
+
+.brand-text {
+display: flex;
+flex-direction: column;
+line-height: 1.2;
+}
+
+.brand-by {
+font-size: 8px;
+letter-spacing: 2px;
+text-transform: uppercase;
+color: rgba(255,255,255,0.35);
+}
+
+.brand-name {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 14px;
+letter-spacing: 1.5px;
+background: linear-gradient(90deg, var(–gold), #fff);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+
+@media (max-width: 400px) {
+.countdown-grid { gap: 10px; }
+.time-block { min-width: 72px; }
+.colon { font-size: 36px; }
+}
+</style>
+
+</head>
+<body>
+
+<div class="bg"></div>
+<div class="particles" id="particles"></div>
+
+<div class="wrapper">
+  <div class="header">
+    <div class="flag-stripe">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="tamil-title">தமிழ்நாடு தேர்தல் முடிவுகள்</div>
+    <div class="main-title">TAMIL NADU<br>ELECTION 2026</div>
+    <div class="subtitle">Assembly Election Results Countdown</div>
+  </div>
+
+  <div class="status-badge" id="statusBadge">
+    <span class="dot" id="statusDot"></span>
+    <span id="statusText">Results on May 4, 2026</span>
+  </div>
+
+  <div id="countdownSection">
+    <div class="countdown-grid">
+      <div class="time-block">
+        <div class="time-card">
+          <div class="time-num" id="days">00</div>
+        </div>
+        <div class="time-label">Days</div>
+      </div>
+      <div class="colon">:</div>
+      <div class="time-block">
+        <div class="time-card">
+          <div class="time-num" id="hours">00</div>
+        </div>
+        <div class="time-label">Hours</div>
+      </div>
+      <div class="colon">:</div>
+      <div class="time-block">
+        <div class="time-card">
+          <div class="time-num" id="minutes">00</div>
+        </div>
+        <div class="time-label">Minutes</div>
+      </div>
+      <div class="colon">:</div>
+      <div class="time-block">
+        <div class="time-card">
+          <div class="time-num" id="seconds">00</div>
+        </div>
+        <div class="time-label">Seconds</div>
+      </div>
+    </div>
+
+```
+<div class="result-card">
+  <div class="result-date-label">Results Declared On</div>
+  <div class="result-date">4 MAY 2026</div>
+  <div class="result-time-note">Counting begins at 8:00 AM IST · 234 Assembly Seats</div>
+</div>
+
+<div class="progress-section">
+  <div class="progress-label">
+    <span>Election Day (Apr 23)</span>
+    <span id="pct">0%</span>
+  </div>
+  <div class="progress-bar">
+    <div class="progress-fill" id="progressFill" style="width:0%"></div>
+  </div>
+  <div class="progress-label" style="margin-top:6px">
+    <span></span>
+    <span>Results Day (May 4)</span>
+  </div>
+</div>
+
+<div class="parties">
+  <div class="parties-title">Key Alliances</div>
+  <div class="party-row">
+    <div class="party-pill"><span class="party-color" style="background:#FF0000"></span>DMK Alliance (SPA)</div>
+    <div class="party-pill"><span class="party-color" style="background:#00AA00"></span>AIADMK</div>
+    <div class="party-pill"><span class="party-color" style="background:#FF6600"></span>TVK (Vijay)</div>
+    <div class="party-pill"><span class="party-color" style="background:#FF9933"></span>BJP NDA</div>
+  </div>
+</div>
+```
+
+  </div>
+
+  <div class="finished" id="finishedSection">
+    <div class="finished-title">RESULTS ARE<br>LIVE!</div>
+    <div class="finished-sub">முடிவுகள் வெளியாகிவிட்டன!</div>
+    <div class="finished-note">Check live results on Election Commission of India website</div>
+  </div>
+
+  <div class="footer">TAMIL NADU LEGISLATIVE ASSEMBLY ELECTIONS 2026 &nbsp;·&nbsp; 234 CONSTITUENCIES</div>
+</div>
+
+<div class="brand-watermark">
+  <div class="brand-icon">💍</div>
+  <div class="brand-text">
+    <span class="brand-by">By</span>
+    <span class="brand-name">VENU TECHNOWEDDING</span>
+  </div>
+</div>
+
+<script>
+  // Generate floating particles
+  const particlesEl = document.getElementById('particles');
+  for (let i = 0; i < 30; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.cssText = `
+      left: ${Math.random() * 100}%;
+      animation-duration: ${6 + Math.random() * 10}s;
+      animation-delay: ${Math.random() * 8}s;
+      width: ${1 + Math.random() * 3}px;
+      height: ${1 + Math.random() * 3}px;
+      background: ${['#FFD700','#FF6B1A','#ffffff','#138808'][Math.floor(Math.random()*4)]};
+    `;
+    particlesEl.appendChild(p);
+  }
+
+  // Target: May 4, 2026 8:00 AM IST (UTC+5:30)
+  const target = new Date('2026-05-04T02:30:00Z'); // 8:00 AM IST = 2:30 AM UTC
+
+  const daysEl = document.getElementById('days');
+  const hoursEl = document.getElementById('hours');
+  const minsEl = document.getElementById('minutes');
+  const secsEl = document.getElementById('seconds');
+  const progressFill = document.getElementById('progressFill');
+  const pctEl = document.getElementById('pct');
+  const statusDot = document.getElementById('statusDot');
+  const statusText = document.getElementById('statusText');
+  const countdownSection = document.getElementById('countdownSection');
+  const finishedSection = document.getElementById('finishedSection');
+
+  // Election day: Apr 23, 2026 for progress calc
+  const electionDay = new Date('2026-04-23T00:00:00Z');
+  const totalWindow = target - electionDay;
+
+  let confettiFired = false;
+
+  function pad(n) { return String(Math.floor(n)).padStart(2, '0'); }
+
+  function flashNum(el, val) {
+    const padded = pad(val);
+    if (el.textContent !== padded) {
+      el.textContent = padded;
+      el.classList.remove('changed');
+      void el.offsetWidth;
+      el.classList.add('changed');
+      setTimeout(() => el.classList.remove('changed'), 400);
+    }
+  }
+
+  function fireConfetti() {
+    if (confettiFired) return;
+    confettiFired = true;
+    const colors = ['#FF6B1A','#FFD700','#138808','#FF0000','#ffffff','#000080'];
+    for (let i = 0; i < 80; i++) {
+      setTimeout(() => {
+        const c = document.createElement('div');
+        c.className = 'confetti-piece';
+        c.style.cssText = `
+          left: ${Math.random() * 100}%;
+          background: ${colors[Math.floor(Math.random() * colors.length)]};
+          animation-duration: ${2 + Math.random() * 3}s;
+          animation-delay: ${Math.random() * 2}s;
+          border-radius: ${Math.random() > 0.5 ? '50%' : '2px'};
+        `;
+        document.body.appendChild(c);
+        setTimeout(() => c.remove(), 6000);
+      }, i * 30);
+    }
+  }
+
+  function tick() {
+    const now = new Date();
+    const diff = target - now;
+
+    // Update progress bar
+    const elapsed = now - electionDay;
+    const pct = Math.min(100, Math.max(0, (elapsed / totalWindow) * 100));
+    progressFill.style.width = pct.toFixed(1) + '%';
+    pctEl.textContent = pct.toFixed(0) + '%';
+
+    if (diff <= 0) {
+      // Results time!
+      countdownSection.style.display = 'none';
+      finishedSection.classList.add('show');
+      statusDot.classList.add('green');
+      statusText.textContent = 'Results are LIVE!';
+      fireConfetti();
+      return;
+    }
+
+    const totalSecs = Math.floor(diff / 1000);
+    const d = Math.floor(totalSecs / 86400);
+    const h = Math.floor((totalSecs % 86400) / 3600);
+    const m = Math.floor((totalSecs % 3600) / 60);
+    const s = totalSecs % 60;
+
+    flashNum(daysEl, d);
+    flashNum(hoursEl, h);
+    flashNum(minsEl, m);
+    flashNum(secsEl, s);
+
+    // Update status
+    if (d === 0) {
+      statusText.textContent = 'Results day is TODAY!';
+      statusDot.classList.add('green');
+    } else if (d === 1) {
+      statusText.textContent = 'Results TOMORROW — May 4, 2026';
+    }
+  }
+
+  tick();
+  setInterval(tick, 1000);
+</script>
+
+</body>
+</html>
